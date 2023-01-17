@@ -65,7 +65,7 @@ let lazyImagesPosition = [];
 if (lazyImages.length > 0) {
   lazyImages.forEach(img => {
     if (img.dataset.src) {
-      lazyImagesPosition.push(img.getBoundingClientRect().top + scrollY);
+      lazyImagesPosition.push(img.getBoundingClientRect().top + pageYOffset);
       lazyScrollCheck();
     }
   })
@@ -81,7 +81,7 @@ function lazyScroll() {
 
 function lazyScrollCheck() {
   let imgIndex = lazyImagesPosition.findIndex(
-    item => scrollY > item - windowHeigth
+    item => pageYOffset > item - windowHeigth
   );
 
   if (imgIndex >= 0) {
