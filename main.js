@@ -55,7 +55,7 @@ for (let index = 2; index < cardsTotalAmount * step; index += step) {
 }
 
 function preloadImage(id) {
-  setSrc(new Image(), id);
+  new Image().src = `https://picsum.photos/id/${id}/${sizeImages}`;
 }
 
 const lazyImages = document.querySelectorAll('img[data-src]');
