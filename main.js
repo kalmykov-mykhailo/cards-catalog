@@ -22,6 +22,7 @@ function createImage(id) {
   const element = document.createElement('img');
   element.classList.add('card__image');
   element.id = id;
+  element.loading = 'lazy';
   element.alt = `image-id-${id}`;
   setSrc(element, id);
 
@@ -30,8 +31,6 @@ function createImage(id) {
 
 function createListeners(element) {
   const initialSrc = element.src;
-  console.log(setSrc(element, element.id))
-  
   element.addEventListener('mouseenter', () => {
     const newId = +element.id + 1;
 
@@ -42,7 +41,6 @@ function createListeners(element) {
     element.src = initialSrc;
   })
 }
-
 
 for (let index = 1; index <= cardsTotalAmount * step; index += step) {
   const liElement = createCardItem(index); 
@@ -63,53 +61,3 @@ for (let index = 2; index < cardsTotalAmount * step; index += step) {
 function preloadImage(id) {
   setSrc(new Image(), id);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// rootElement.append(list);
-// rootElement.innerHTML = `
-//   ${listProduct.map(product => `
-//     <ul class="catalog">
-//       <img 
-//         src=${product.imgFirst}
-//         alt=${product.name}
-//         class="image"
-//       >
-//       </img>
-//       <p>
-//         ${product.description}
-//       </p>
-//       <img 
-//         src=${product.imgSecond}
-//         alt=${product.name}
-//         class="image"
-//       >
-//       </img>
-
-//       <img 
-//         src=${product.imgTgird}
-//         alt=${product.name}
-//         class="image"
-//       >
-//       </img>
-//     </ul>
-//     `).join('')}
-// `;
-// function newCard() {
-//   list
-// }
