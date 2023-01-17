@@ -52,7 +52,7 @@ function createListeners(element) {
 }
 
 function generateCards() {
-  for (let index = initilIndex; index <= cardsToDisplay * step; index += step) {
+  for (let index = initilIndex; index <= cardsToDisplay * 3; index += step) {
     const liElement = createCardItem(index);
     const staticImgElement = createImage(index);
     const dynamicImgElemen = createImage(index + 2);
@@ -72,7 +72,7 @@ function generateCards() {
 function scrollListener() {
   if (catalog.scrollTop >= (catalog.scrollHeight - catalog.clientHeight) * 0.8) {
     initilIndex = cardsToDisplay * 3 + 1;
-    cardsToDisplay += cardsToDisplay;
+    cardsToDisplay += 12;
     generateCards();
   }
 }
